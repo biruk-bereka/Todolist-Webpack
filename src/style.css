@@ -1,7 +1,82 @@
 body {
-  background-color: bisque;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
-.hello {
-  color: red;
+li {
+  list-style: none;
+}
+
+button {
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
+
+button.checkbox {
+  padding: 10px;
+  background-color: white;
+  border: 1px solid gray;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10rem;
+}
+
+button.clear {
+  text-align: center;
+}
+
+form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+}
+
+input {
+  padding: 10px;
+  border: none;
+}
+
+input:focus {
+  outline: none;
+}
+
+input:focus-visible {
+  border: none;
+}
+
+.todo-lists {
+  display: flex;
+  flex-direction: column;
+}
+
+.lists {
+  display: flex;
+  flex-direction: column;
+}
+
+.list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 15px;
+}
+
+.clear {
+  display: flex;
+  align-self: center;
+  background-color: #ece3e3;
+  padding: 10px;
 }
