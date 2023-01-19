@@ -104,3 +104,7 @@ p:focus {
 .move:hover {
   cursor: move;
 }
+
+.completed {
+  text-decoration: line-through;
+}

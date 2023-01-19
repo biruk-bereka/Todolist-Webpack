@@ -5,10 +5,16 @@ import Todo from './modules/todoList.js';
 
 const todoClass = new Todo();
 const addButton = document.querySelector('.addList');
+const clearButton = document.querySelector('.clear');
+
 addButton.addEventListener('click', (event) => {
   event.preventDefault();
   const inputValue = document.querySelector('.listInput').value;
   if (inputValue !== '') todoClass.addList();
+});
+
+clearButton.addEventListener('click', () => {
+  todoClass.clearCompleted();
 });
 
 todoClass.showList();
