@@ -1,3 +1,5 @@
+import Status from "./status.js";
+
 export default class Todo {
   constructor() {
     this.todoListCollection = [];
@@ -80,50 +82,6 @@ export default class Todo {
     });
   };
 
-  updateStatus = (listIndex, checked) => {
-    const description = document.querySelector(`.desc-${listIndex}`);
-    const listCollection = this.#getLists();
-    let listUpdated = [];
-    if (checked) {
-      description.classList.add('completed');
-      listUpdated = listCollection.map((list) => {
-        if (list.index === listIndex) {
-          return {
-            ...list,
-            completed: true,
-          };
-        }
-
-        return list;
-      });
-    } else {
-      description.classList.remove('completed');
-      listUpdated = listCollection.map((list) => {
-        if (list.index === listIndex) {
-          return {
-            ...list,
-            completed: false,
-          };
-        }
-
-        return list;
-      });
-    }
-    this.#setList(listUpdated);
-  };
-
-  clearCompleted = () => {
-    const listCollection = this.#getLists();
-    const listUpdated = listCollection
-      .filter((list) => !list.completed)
-      .map((list, index) => ({
-        ...list,
-        index: index + 1,
-      }));
-    this.#setList(listUpdated);
-    this.showList();
-  };
-
   showList() {
     const todoLists = this.#getLists();
     if (todoLists.length > 0) {
@@ -172,7 +130,8 @@ export default class Todo {
       const checkboxButtons = document.querySelectorAll('.checkbox');
       checkboxButtons.forEach((btn, index) => {
         btn.addEventListener('click', (event) => {
-          this.updateStatus(index + 1, event.target.checked);
+          const statusUpdate = new Status();
+          statusUpdate.status(index + 1, event.target.checked);
         });
       });
     } else {
