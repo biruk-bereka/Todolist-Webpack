@@ -48,6 +48,38 @@ export default class Todo {
     this.showList();
   };
 
+  editList = (listIndex) => {
+    const listCollection = this.#getLists();
+    const { description } = listCollection[listIndex - 1];
+    const editForm = document.querySelector(`.c-${listIndex}`);
+    editForm.innerHTML = `
+        <form action="">
+          <i class="fa-solid fa-pencil"></i>
+          <input class="editInput" type="text" value="${description}"/>
+          <button class="editList"><i class="fa-solid fa-check"></i></button>
+       </form>
+     `;
+    const editListButton = document.querySelector('.editList');
+    editListButton.addEventListener('click', (event) => {
+      event.preventDefault();
+      const editedValue = document.querySelector('.editInput').value;
+      if (editedValue !== '') {
+        const listCollection = this.#getLists();
+        const listUpdated = listCollection.map((list) => {
+          if (list.index === listIndex) {
+            return {
+              ...list,
+              description: editedValue,
+            };
+          }
+          return list;
+        });
+        this.#setList(listUpdated);
+        this.showList();
+      }
+    });
+  };
+
   showList() {
     const todoLists = this.#getLists();
     if (todoLists.length > 0) {
@@ -59,13 +91,12 @@ export default class Todo {
         listWrapper.innerHTML = '';
         listWrapper.classList.add('list');
         listWrapper.innerHTML = `
-            <div class="content">
+            <div class="content c-${list.index}">
               <button class="checkbox"></button>
-              <p contentEditable="true" class="description">${list.description}</p>
+              <p class="description desc-${list.index}">${list.description}</p>
             </div>
             <div class="editButton button-${list.index}">
                 <button type="button" class="delete"><i class="fa-solid fa-trash-can"></i></button>  
-                <button type="button" class="move"><i class="fa-solid fa-ellipsis-vertical"></i></button>
             </div>
               `;
         todoListsWrapper.appendChild(listWrapper);
@@ -74,6 +105,13 @@ export default class Todo {
       deleteButton.forEach((btn, index) => {
         btn.addEventListener('click', () => {
           this.deleteList(index + 1);
+        });
+      });
+
+      const descriptions = document.querySelectorAll('.description');
+      descriptions.forEach((description, index) => {
+        description.addEventListener('click', () => {
+          this.editList(index + 1);
         });
       });
     } else {
