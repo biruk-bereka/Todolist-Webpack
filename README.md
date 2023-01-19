@@ -53,7 +53,13 @@
 - Populate the array of objects to the HTML.
 - The array of objects that contain the to-do list is rendered dynamically and in order of the index value for each task.
 - Create a CSS using the webpack Style/CSS loader.
-     
+
+  # New Features  
+- Remove all hardcoded items from the task array.
+- Create a new Js with add, remove and update functions.
+- Update the remaining items after deleting.
+- ToDo list saved in the local storage.  
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LIVE DEMO -->
@@ -117,7 +123,7 @@ npm install
 
 > Future features
 
-- [ ] **Add add and remove functionality for to do list**
+- [ ] **Add more interactivity to the list**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
