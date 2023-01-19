@@ -55,6 +55,8 @@ input:focus-visible {
 .todo-lists {
   display: flex;
   flex-direction: column;
+  border: 1px solid black;
+  padding-right: 10px;
 }
 
 .lists {
@@ -79,4 +81,26 @@ input:focus-visible {
   align-self: center;
   background-color: #ece3e3;
   padding: 10px;
+}
+
+.description {
+  padding: 5px 5px;
+}
+
+p:focus {
+  outline: none;
+  background-color: yellow;
+  padding: 10px;
+}
+
+.inactive {
+  display: none;
+}
+
+.editButton {
+  display: flex;
+}
+
+.move:hover {
+  cursor: move;
 }
