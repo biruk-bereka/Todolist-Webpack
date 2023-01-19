@@ -110,7 +110,19 @@ export default class Todo {
       });
     }
     this.#setList(listUpdated);
-  }
+  };
+
+  clearCompleted = () => {
+    const listCollection = this.#getLists();
+    const listUpdated = listCollection
+      .filter((list) => !list.completed)
+      .map((list, index) => ({
+        ...list,
+        index: index + 1,
+      }));
+    this.#setList(listUpdated);
+    this.showList();
+  };
 
   showList() {
     const todoLists = this.#getLists();
