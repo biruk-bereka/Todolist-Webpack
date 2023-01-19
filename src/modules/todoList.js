@@ -80,6 +80,38 @@ export default class Todo {
     });
   };
 
+  updateStatus = (listIndex, checked) => {
+    const description = document.querySelector(`.desc-${listIndex}`);
+    const listCollection = this.#getLists();
+    let listUpdated = [];
+    if (checked) {
+      description.classList.add('completed');
+      listUpdated = listCollection.map((list) => {
+        if (list.index === listIndex) {
+          return {
+            ...list,
+            completed: true,
+          };
+        }
+
+        return list;
+      });
+    } else {
+      description.classList.remove('completed');
+      listUpdated = listCollection.map((list) => {
+        if (list.index === listIndex) {
+          return {
+            ...list,
+            completed: false,
+          };
+        }
+
+        return list;
+      });
+    }
+    this.#setList(listUpdated);
+  }
+
   showList() {
     const todoLists = this.#getLists();
     if (todoLists.length > 0) {
@@ -92,7 +124,7 @@ export default class Todo {
         listWrapper.classList.add('list');
         listWrapper.innerHTML = `
             <div class="content c-${list.index}">
-              <button class="checkbox"></button>
+              <input type="checkbox" id="checkbox-${list.index}" class="checkbox">
               <p class="description desc-${list.index}">${list.description}</p>
             </div>
             <div class="editButton button-${list.index}">
@@ -101,6 +133,16 @@ export default class Todo {
               `;
         todoListsWrapper.appendChild(listWrapper);
       });
+
+      const checkboxAll = document.querySelectorAll('.checkbox');
+      checkboxAll.forEach((checkBox, index) => {
+        if (todoLists[index].completed) {
+          checkBox.checked = true;
+          const description = document.querySelector(`.desc-${index + 1}`);
+          description.classList.add('completed');
+        }
+      });
+
       const deleteButton = document.querySelectorAll('.delete');
       deleteButton.forEach((btn, index) => {
         btn.addEventListener('click', () => {
@@ -112,6 +154,13 @@ export default class Todo {
       descriptions.forEach((description, index) => {
         description.addEventListener('click', () => {
           this.editList(index + 1);
+        });
+      });
+
+      const checkboxButtons = document.querySelectorAll('.checkbox');
+      checkboxButtons.forEach((btn, index) => {
+        btn.addEventListener('click', (event) => {
+          this.updateStatus(index + 1, event.target.checked);
         });
       });
     } else {
