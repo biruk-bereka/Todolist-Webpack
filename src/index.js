@@ -2,10 +2,11 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import '@fortawesome/fontawesome-free/js/all.js';
 import './style.css';
 import Todo from './modules/todoList.js';
-import Status from './modules/status';
+import Completed from './modules/completed.js';
 
 const todoClass = new Todo();
-const updateStatus = new Status();
+const completed = new Completed();
+
 const addButton = document.querySelector('.addList');
 const clearButton = document.querySelector('.clear');
 
@@ -16,7 +17,7 @@ addButton.addEventListener('click', (event) => {
 });
 
 clearButton.addEventListener('click', () => {
-  updateStatus.clearCompleted();
+  completed.clearCompleted();
 });
 
 todoClass.showList();
