@@ -52,13 +52,16 @@
 - Created an array of objects.
 - Populate the array of objects to the HTML.
 - The array of objects that contain the to-do list is rendered dynamically and in order of the index value for each task.
-- Create a CSS using the webpack Style/CSS loader.
-
-  # New Features  
-- Remove all hardcoded items from the task array.
+- Create a CSS using the webpack Style/CSS loader. 
 - Create a new Js with add, remove and update functions.
 - Update the remaining items after deleting.
 - ToDo list saved in the local storage.  
+
+### New Features
+- Function for "Clear all completed" button implemented
+- Add event listener to checkboxes of the list and mark the object as complete and incomplete depending on the checkbox.
+- Add interactivity for description and checkbox
+- Store the updated array of items in the local storage.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
