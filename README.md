@@ -49,15 +49,12 @@
 ### Key Features <a name="key-features"></a>
 - Project setup by webpack.
 - HTML file setup using the HTML Webpack plugin.
-- Created an array of objects.
 - Populate the array of objects to the HTML.
 - The array of objects that contain the to-do list is rendered dynamically and in order of the index value for each task.
 - Create a CSS using the webpack Style/CSS loader. 
 - Create a new Js with add, remove and update functions.
 - Update the remaining items after deleting.
 - ToDo list saved in the local storage.  
-
-### New Features
 - Function for "Clear all completed" button implemented
 - Add event listener to checkboxes of the list and mark the object as complete and incomplete depending on the checkbox.
 - Add interactivity for description and checkbox
@@ -69,9 +66,9 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-> There no live version for now
+> Here is the link for live version
 
-- [Live Demo Link]()
+- [Live Demo Link](https://biruk-bereka.github.io/Todolist-Webpack/dist)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
