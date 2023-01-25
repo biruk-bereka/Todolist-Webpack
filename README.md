@@ -60,6 +60,10 @@
 - Add interactivity for description and checkbox
 - Store the updated array of items in the local storage.
 
+### New Feature 
+- Test file created for a file containing the add item and delete item functions.
+- Test case created for Mock HTML to test if add/delete functions add or remove exactly one <li> element to/from the list in the DOM.
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LIVE DEMO -->
@@ -101,6 +105,10 @@ npm install
 ### Usage
 
 ### Run tests
+-testing with jest
+```sh
+npm test
+```
 
 ### Deployment
   
@@ -115,6 +123,12 @@ npm install
 - GitHub: [@biruk-bereka](https://github.com/biruk-bereka)
 - LinkedIn:[@Biruk Bereka](https://www.linkedin.com/in/biruk-bereka1212/)
 
+👤 **Jugoslav Achkoski**
+
+- GitHub: [jugosack](https://github.com/jugosack)
+- Twitter: [Jugoslav Achkoski](https://twitter.com/Jugosla22401325)
+- LinkedIn: [Jugoslav Achkoski](https://www.linkedin.com/in/jugoslav-achkoski-3a074021/?originalSubdomain=mk)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
@@ -123,7 +137,8 @@ npm install
 
 > Future features
 
-- [ ] **Add more interactivity to the list**
+- [ ] **Add test cases for status update**
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
