@@ -1,32 +1,32 @@
-import Todo from "../src/modules/todoList.js";
+import Todo from '../src/modules/todoList.js';
 
 const todo = new Todo();
 
-describe("Todo list functions test case: ", () => {
+describe('Todo list functions test case: ', () => {
   const todoList = [
     {
-      description: "",
+      description: '',
       completed: false,
       index: 1,
     },
   ];
-  describe("Add item test case: ", () => {
-    test("test 1", () => {
+  describe('Add item test case: ', () => {
+    test('test 1', () => {
       todo.addList();
       expect(todo.getLists().length).toBe(1);
     });
 
-    test("test 2", () => {
+    test('test 2', () => {
       expect(todo.getLists()).toStrictEqual(todoList);
     });
   });
-  describe("Delete an item test case: ", () => {
-    test("test 1", () => {
+  describe('Delete an item test case: ', () => {
+    test('test 1', () => {
       todo.deleteList(1);
       expect(todo.getLists().length).toBe(0);
     });
 
-    test("test 2", () => {
+    test('test 2', () => {
       todo.addList();
       todo.addList();
       todo.deleteList(1);
@@ -35,14 +35,14 @@ describe("Todo list functions test case: ", () => {
   });
 });
 
-describe("Mock HTML to check add/remove li element: ", () => {
+describe('Mock HTML to check add/remove li element: ', () => {
   const list = {
-    description: "Test 1",
+    description: 'Test 1',
     completed: false,
     index: 1,
   };
 
-  const lists = document.querySelector(".lists");
+  const lists = document.querySelector('.lists');
 
   lists.innerHTML = `
      <li class="list">
@@ -56,14 +56,14 @@ describe("Mock HTML to check add/remove li element: ", () => {
      </li>
    `;
 
-   test('Mock HTML to add exactly one li element', ()=>{
-       const listItems = document.querySelectorAll('.lists li');
-       expect(listItems).toHaveLength(1);
-   });
+  test('Mock HTML to add exactly one li element', () => {
+    const listItems = document.querySelectorAll('.lists li');
+    expect(listItems).toHaveLength(1);
+  });
 
-   test('Mock HTML to remove exactly one li element', ()=>{
-       lists.firstElementChild.remove();
-       const listItems = document.querySelectorAll('.lists li');
-       expect(listItems).toHaveLength(0);
-   });
+  test('Mock HTML to remove exactly one li element', () => {
+    lists.firstElementChild.remove();
+    const listItems = document.querySelectorAll('.lists li');
+    expect(listItems).toHaveLength(0);
+  });
 });
