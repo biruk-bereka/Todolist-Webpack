@@ -20,4 +20,17 @@ describe('Todo list functions test case: ', () => {
       expect(todo.getLists()).toStrictEqual(todoList);
     });
   });
+  describe('Delete an item test case: ', () => {
+    test('test 1', () => {
+      todo.deleteList(1);
+      expect(todo.getLists().length).toBe(0);
+    });
+
+    test('test 2', () => {
+      todo.addList();
+      todo.addList();
+      todo.deleteList(1);
+      expect(todo.getLists().length).toBe(1);
+    });
+  });
 });
