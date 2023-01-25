@@ -9,15 +9,15 @@ export default class Todo {
     localStorage.setItem('Lists', JSON.stringify(list));
   };
 
-  #getLists = () => {
+  getLists = () => {
     const lists = JSON.parse(localStorage.getItem('Lists'));
     if (lists) return lists;
     return [];
   };
 
   #updateTodolistStorage = (list) => {
-    if (list === '') return this.#getLists();
-    this.todoListCollection = this.#getLists();
+    if (list === '') return this.getLists();
+    this.todoListCollection = this.getLists();
     this.todoListCollection.push(list);
     return this.#setList(this.todoListCollection);
   };
@@ -26,7 +26,7 @@ export default class Todo {
     const newList = {
       description: document.querySelector('.listInput').value,
       completed: false,
-      index: this.#getLists().length + 1,
+      index: this.getLists().length + 1,
     };
     this.#updateTodolistStorage(newList);
     this.showList();
@@ -34,7 +34,7 @@ export default class Todo {
   }
 
   deleteList = (listIndex) => {
-    const listCollection = this.#getLists();
+    const listCollection = this.getLists();
     const listUpdated = listCollection
       .filter((list, index) => index + 1 !== listIndex)
       .map((list) => {
@@ -51,7 +51,7 @@ export default class Todo {
   };
 
   editList = (listIndex) => {
-    const listCollection = this.#getLists();
+    const listCollection = this.getLists();
     const { description } = listCollection[listIndex - 1];
     const editForm = document.querySelector(`.c-${listIndex}`);
     editForm.innerHTML = `
@@ -66,7 +66,7 @@ export default class Todo {
       event.preventDefault();
       const editedValue = document.querySelector('.editInput').value;
       if (editedValue !== '') {
-        const listCollection = this.#getLists();
+        const listCollection = this.getLists();
         const listUpdated = listCollection.map((list) => {
           if (list.index === listIndex) {
             return {
@@ -83,7 +83,7 @@ export default class Todo {
   };
 
   showList() {
-    const todoLists = this.#getLists();
+    const todoLists = this.getLists();
     if (todoLists.length > 0) {
       todoLists.sort((a, b) => a.index - b.index);
       const todoListsWrapper = document.querySelector('.lists');
