@@ -13,4 +13,12 @@ describe('Edit Task function test', () => {
     const todoList = todo.getLists();
     expect(todoList[0].description).toStrictEqual('Edited value');
   });
+
+  describe('Test for status completed function', () => {
+    const task = 'New Task';
+    addList(task);
+    status(1, true);
+    const todoList = todo.getLists();
+    expect(todoList[1].completed).toBe(true);
+  });
 });

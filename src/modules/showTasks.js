@@ -72,14 +72,13 @@ const showList = () => {
     const checkboxButtons = document.querySelectorAll('.checkbox');
     checkboxButtons.forEach((btn, index) => {
       btn.addEventListener('click', (event) => {
-        const checked = event.target.checked;
+        const { checked } = event.target;
         status(index, checked);
 
-        const description = document.querySelector(`.desc-${index+1}`);
-        if(checked) {
+        const description = document.querySelector(`.desc-${index + 1}`);
+        if (checked) {
           description.classList.add('completed');
-        }
-        else {
+        } else {
           description.classList.remove('completed');
         }
       });
