@@ -21,7 +21,7 @@ const showList = () => {
               <p class="description desc-${list.index}">${list.description}</p>
             </div>
             <div class="editButton button-${list.index}">
-                <button  type="button" id="delete-${list.index}" class="delete"><i class="fa-solid fa-trash-can"></i></button>  
+                <button type="button" class="delete"><i class="fa-solid fa-trash-can"></i></button>  
             </div>
               `;
       todoListsWrapper.appendChild(listWrapper);
