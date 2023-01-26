@@ -1,33 +1,10 @@
-export default class Status {
-  status = (listIndex, checked) => {
-    const description = document.querySelector(`.desc-${listIndex}`);
-    const listCollection = JSON.parse(localStorage.getItem('Lists'));
-    let listUpdated = [];
-    if (checked) {
-      description.classList.add('completed');
-      listUpdated = listCollection.map((list) => {
-        if (list.index === listIndex) {
-          return {
-            ...list,
-            completed: true,
-          };
-        }
+import Todo from "./todoList.js";
 
-        return list;
-      });
-    } else {
-      description.classList.remove('completed');
-      listUpdated = listCollection.map((list) => {
-        if (list.index === listIndex) {
-          return {
-            ...list,
-            completed: false,
-          };
-        }
-
-        return list;
-      });
-    }
-    localStorage.setItem('Lists', JSON.stringify(listUpdated));
+  const todo = new Todo();
+  const status = (index, checked) => {
+    const listCollection = todo.getLists();
+    listCollection[index].completed = checked;
+    todo.setList(listCollection);
   };
-}
+
+  export default status;

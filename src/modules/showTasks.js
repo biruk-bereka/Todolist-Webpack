@@ -1,4 +1,4 @@
-import Status from './status.js';
+import status from './status.js';
 import Todo from './todoList.js';
 import deleteList from './deleteTask.js';
 import editList from './editTask.js';
@@ -72,8 +72,16 @@ const showList = () => {
     const checkboxButtons = document.querySelectorAll('.checkbox');
     checkboxButtons.forEach((btn, index) => {
       btn.addEventListener('click', (event) => {
-        const statusUpdate = new Status();
-        statusUpdate.status(index + 1, event.target.checked);
+        const checked = event.target.checked;
+        status(index, checked);
+
+        const description = document.querySelector(`.desc-${index+1}`);
+        if(checked) {
+          description.classList.add('completed');
+        }
+        else {
+          description.classList.remove('completed');
+        }
       });
     });
   } else {
