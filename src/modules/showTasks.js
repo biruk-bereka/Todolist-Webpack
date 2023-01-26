@@ -62,7 +62,7 @@ const showList = () => {
           event.preventDefault();
           const editedValue = document.querySelector('.editInput').value;
           if (editedValue !== '') {
-            editList(index + 1, editedValue);
+            editList(index, editedValue);
             showList();
           }
         });
