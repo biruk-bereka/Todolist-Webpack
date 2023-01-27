@@ -4,25 +4,25 @@
 
 # 📗 Table of Contents
 
-- [📖 About the Project](#about-project)
-  - [🛠 Built With](#built-with)
-    - [Tech Stack](#tech-stack)
-    - [Key Features](#key-features)
-  - [🚀 Live Demo](#live-demo)
-- [💻 Getting Started](#getting-started)
-  - [Setup](#setup)
-  - [Prerequisites](#prerequisites)
-  - [Install](#install)
-  - [Usage](#usage)
-  - [Run tests](#run-tests)
-  - [Deployment](#triangular_flag_on_post-deployment)
-- [👥 Authors](#authors)
-- [🔭 Future Features](#future-features)
-- [🤝 Contributing](#contributing)
-- [⭐️ Show your support](#support)
-- [🙏 Acknowledgements](#acknowledgements)
-- [❓ FAQ](#faq)
-- [📝 License](#license)
+- [📗 Table of Contents](#-table-of-contents)
+- [📖 To-Do List](#-to-do-list)
+  - [🛠 Built With ](#-built-with-)
+    - [Tech Stack ](#tech-stack-)
+    - [Key Features ](#key-features-)
+    - [New Feature](#new-feature)
+  - [🚀 Live Demo ](#-live-demo-)
+  - [💻 Getting Started ](#-getting-started-)
+    - [Prerequisites](#prerequisites)
+    - [Setup](#setup)
+    - [Install](#install)
+    - [Usage](#usage)
+    - [Run tests](#run-tests)
+    - [Deployment](#deployment)
+  - [👥 Authors ](#-authors-)
+  - [🔭 Future Features ](#-future-features-)
+  - [🤝 Contributing ](#-contributing-)
+  - [⭐️ Show your support ](#️-show-your-support-)
+  - [📝 License ](#-license-)
 
 <!-- PROJECT DESCRIPTION -->
 
@@ -59,10 +59,14 @@
 - Add event listener to checkboxes of the list and mark the object as complete and incomplete depending on the checkbox.
 - Add interactivity for description and checkbox
 - Store the updated array of items in the local storage.
-
-### New Feature 
 - Test file created for a file containing the add item and delete item functions.
 - Test case created for Mock HTML to test if add/delete functions add or remove exactly one <li> element to/from the list in the DOM.
+### New Feature 
+    Test Added for: 
+  - Editing the task description function.
+  - Updating an item's 'completed' status function.
+  - The "Clear all completed" function.
+  - DOM manipulation functions.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -137,7 +141,7 @@ npm test
 
 > Future features
 
-- [ ] **Add test cases for status update**
+- [ ] **Styling todo list**
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
