@@ -1,24 +1,42 @@
 import Todo from '../src/modules/todoList.js';
 import editList from '../src/modules/editTask.js';
-import addList from '../src/modules/addTask.js';
 import status from '../src/modules/status.js';
+import clearCompleted from '../src/modules/completed.js';
 
-const todo = new Todo();
+describe('Test for Status Update', () => {
+  const todo = new Todo();
+  beforeEach(() => {
+    localStorage.clear();
+    const todoList = [
+      {
+        description: 'Task one',
+        completed: false,
+        index: 1,
+      },
+      {
+        description: 'Task two',
+        completed: true,
+        index: 2,
+      },
+    ];
+    todo.setList(todoList);
+  });
 
-describe('Edit Task function test', () => {
-  const task = 'Task one';
-  addList(task);
-  test('test 1', () => {
+  test('Edit task function test: ', () => {
     editList(0, 'Edited value');
     const todoList = todo.getLists();
     expect(todoList[0].description).toStrictEqual('Edited value');
   });
 
-  describe('Test for status completed function', () => {
-    const task = 'New Task';
-    addList(task);
-    status(1, true);
+  test('Status completed function test: ', () => {
+    status(0, true);
     const todoList = todo.getLists();
-    expect(todoList[1].completed).toBe(true);
+    expect(todoList[0].completed).toBe(true);
+  });
+
+  test('Clear completed function test:', () => {
+    clearCompleted();
+    expect(todo.getLists().length).toBe(1);
   });
 });
+
