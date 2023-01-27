@@ -1,4 +1,4 @@
-import Status from './status.js';
+import status from './status.js';
 import Todo from './todoList.js';
 import deleteList from './deleteTask.js';
 import editList from './editTask.js';
@@ -17,7 +17,7 @@ const showList = () => {
       listWrapper.classList.add('list');
       listWrapper.innerHTML = `
             <div class="content c-${list.index}">
-              <input type="checkbox" id="checkbox-${list.index}" class="checkbox">
+              <input type="checkbox" id="checkbox-${list.index}" class="checkbox ${list.completed}">
               <p class="description desc-${list.index}">${list.description}</p>
             </div>
             <div class="editButton button-${list.index}">
@@ -62,7 +62,7 @@ const showList = () => {
           event.preventDefault();
           const editedValue = document.querySelector('.editInput').value;
           if (editedValue !== '') {
-            editList(index + 1, editedValue);
+            editList(index, editedValue);
             showList();
           }
         });
@@ -72,8 +72,15 @@ const showList = () => {
     const checkboxButtons = document.querySelectorAll('.checkbox');
     checkboxButtons.forEach((btn, index) => {
       btn.addEventListener('click', (event) => {
-        const statusUpdate = new Status();
-        statusUpdate.status(index + 1, event.target.checked);
+        const { checked } = event.target;
+        status(index, checked);
+
+        const description = document.querySelector(`.desc-${index + 1}`);
+        if (checked) {
+          description.classList.add('completed');
+        } else {
+          description.classList.remove('completed');
+        }
       });
     });
   } else {
