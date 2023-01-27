@@ -17,7 +17,7 @@ const showList = () => {
       listWrapper.classList.add('list');
       listWrapper.innerHTML = `
             <div class="content c-${list.index}">
-              <input type="checkbox" id="checkbox-${list.index}" class="checkbox">
+              <input type="checkbox" id="checkbox-${list.index}" class="checkbox ${list.completed}">
               <p class="description desc-${list.index}">${list.description}</p>
             </div>
             <div class="editButton button-${list.index}">
