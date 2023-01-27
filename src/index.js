@@ -1,11 +1,9 @@
 import '@fortawesome/fontawesome-free/css/all.css';
 import '@fortawesome/fontawesome-free/js/all.js';
 import './style.css';
-import Completed from './modules/completed.js';
+import clearCompleted from './modules/completed.js';
 import addList from './modules/addTask.js';
 import showList from './modules/showTasks.js';
-
-const completed = new Completed();
 
 const addButton = document.querySelector('.addList');
 const clearButton = document.querySelector('.clear');
@@ -17,7 +15,7 @@ addButton.addEventListener('click', (event) => {
 });
 
 clearButton.addEventListener('click', () => {
-  completed.clearCompleted();
+  clearCompleted();
 });
 
 showList();
